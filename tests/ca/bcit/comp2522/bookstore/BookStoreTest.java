@@ -16,89 +16,84 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BookStoreTest
 {
     BookStore b1;
-    BookStore b2;
-    BookStore b3;
-
 
     @BeforeEach
     void setUp()
     {
-        b1 = new BookStore("Chapters", );
-        b2 = new BookStore("Indigo", );
-        b3 = new BookStore("Coles", );
+        b1 = new BookStore("Chapters");
     }
 
     @AfterEach
     void tearDown()
     {
         b1 = null;
-        b2 = null;
-        b3 = null;
     }
 
     @Test
     void testPrintAllTitles()
     {
-        assertEquals(, b1.printAllTitles();)
-        assertEquals(, b2.printAllTitles();)
+        assertDoesNotThrow(() -> b1.printAllTitles());
     }
 
     @Test
     void testPrintBookTitle()
     {
-        assertEquals(, b1.printBookTitle();)
-        assertEquals(, b2.printBookTitle();)
+        assertDoesNotThrow(() -> b1.printBookTitle("the"));
+        assertDoesNotThrow(() -> b1.printBookTitle("American"));
+        assertDoesNotThrow(() -> b1.printBookTitle("Man"));
+        assertDoesNotThrow(() -> b1.printBookTitle("asdfghjkl"));
     }
 
     @Test
     void testPrintTitlesInAlphaOrder()
     {
-        assertEquals(, b1.printTitlesInAlphaOrder();)
-        assertEquals(, b2.printTitlesInAlphaOrder();)
+        assertDoesNotThrow(() -> b1.printTitlesInAlphaOrder());
     }
 
     @Test
     void testPrintGroupByDecade()
     {
-        assertEquals(, b1.printGroupByDecade();)
-        assertEquals(, b2.printGroupByDecade();)
+        assertDoesNotThrow(() -> b1.printGroupByDecade(1930));
+        assertDoesNotThrow(() -> b1.printGroupByDecade(2026));
+        assertDoesNotThrow(() -> b1.printGroupByDecade(1800));
     }
 
     @Test
     void testGetLongest()
     {
-        assertEquals(, b1.getLongest();)
-        assertEquals(, b2.getLongest();)
+        assertDoesNotThrow(() -> b1.getLongest());
     }
 
     @Test
     void testIsThereABookWrittenBetween()
     {
-
+        assertTrue();
+        assertFalse();
     }
 
     @Test
     void testHowManyBooksContain()
     {
-
+        assertEquals();
     }
 
     @Test
     void testWhichPercentWrittenBetween()
     {
-
+        assertEquals();
+        assertTrue();
     }
 
     @Test
     void testGetOldestBook()
     {
-
+        assertEquals();
     }
 
     @Test
     void testGetBooksThisLength()
     {
-
+        assertTrue();
     }
 
 }
