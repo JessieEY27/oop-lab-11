@@ -5,6 +5,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -67,33 +70,83 @@ public class BookStoreTest
     @Test
     void testIsThereABookWrittenBetween()
     {
-        assertTrue();
-        assertFalse();
+        assertTrue(b1.isThereABookWrittenBetween(1954));
+        assertFalse(b1.isThereABookWrittenBetween(2026));
     }
 
     @Test
     void testHowManyBooksContain()
     {
-        assertEquals();
+        final int count1;
+        final int count2;
+
+        count1 = b1.howManyBooksContain("Ring");
+        count2 = b1.howManyBooksContain("Spaghettification");
+
+        assertEquals(1,
+                     count1);
+        assertEquals(0,
+                     count2);
     }
 
     @Test
     void testWhichPercentWrittenBetween()
     {
-        assertEquals();
-        assertTrue();
+        final int lowYear1;
+        final int highYear1;
+        final int lowYear2;
+        final int highYear2;
+        final double result1;
+        final double result2;
+
+        lowYear1 = 1900;
+        highYear1 = 2000;
+        lowYear2 = 1850;
+        highYear2 = 1860;
+
+        result1 = b1.whichPercentWrittenBetween(lowYear1,
+                                                highYear1);
+        result2 = b1.whichPercentWrittenBetween(lowYear2,
+                                                 highYear2);
+
+        assertEquals(97.0,
+                     result1);
+        assertEquals(0.0,
+                     result2);
     }
 
     @Test
     void testGetOldestBook()
     {
-        assertEquals();
+        assertEquals("A Passage to India",
+                     b1.getOldestBook().getTitle());
     }
 
     @Test
     void testGetBooksThisLength()
     {
-        assertTrue();
+        final List<Novel> result1;
+        final List<Novel> result2;
+        final List<Novel> expected1;
+        final List<Novel> expected2;
+
+
+        result1 = b1.getBooksThisLength(4);
+        result2 = b1.getBooksThisLength(0);
+
+        expected1 = new ArrayList<>();
+        expected1.add(new Novel("1984",
+                              "George Orwell",
+                              1948));
+        expected1.add(new Novel("Ubik",
+                              "Philip K. Dick",
+                              1969));
+
+        expected2 = new ArrayList<>();
+
+        assertEquals(expected1.stream().map(Object::toString).toList(),
+                     result1.stream().map(Object::toString).toList());
+        assertEquals(expected2, result2);
     }
 
 }
